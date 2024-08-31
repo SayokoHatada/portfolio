@@ -33,3 +33,6 @@ MVPリリース
 ■ 機能の実装方針予定
 添削機能：　Language Tool
 画像生成：　Stable Diffusion 
+
+■ 画面遷移図のリンク
+https://www.figma.com/design/x5pR9bHkPmLKpVZPtiKzRq/Portfolio?node-id=0-1&t=8zaH9eaWMQ2dT5n5-1
