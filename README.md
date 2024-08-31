@@ -36,3 +36,6 @@ MVPリリース
 
 ■ 画面遷移図のリンク
 https://www.figma.com/design/x5pR9bHkPmLKpVZPtiKzRq/Portfolio?node-id=0-1&t=8zaH9eaWMQ2dT5n5-1
+
+■ ER図のリンク
+https://drive.google.com/file/d/1T569KEKFF6YmZ6AOLRB4vDyJgQ6SkgRE/view?usp=sharing
