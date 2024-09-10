@@ -31,3 +31,6 @@ COPY yarn.lock /portfolio/yarn.lock
 RUN bundle install
 RUN yarn install
 COPY . /portfolio
+
+# Rails サーバーを起動するコマンドを指定
+CMD ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
