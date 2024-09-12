@@ -264,17 +264,14 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-<<<<<<< HEAD
     unicode-display_width (2.5.0)
     useragent (0.16.10)
-=======
     web-console (4.2.1)
       actionview (>= 6.0.0)
+      activemodel (>= 6.0.0)
+      bindex (>= 0.4.0)
       railties (>= 6.0.0)
-<<<<<<< HEAD
     webrick (1.8.1)
-=======
->>>>>>> 186978c1c638b88bc7baf605f23329f950bef860
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
@@ -285,7 +282,6 @@ GEM
 
 PLATFORMS
   aarch64-linux
-<<<<<<< HEAD
   arm-linux
   arm64-darwin
   x86-linux
@@ -304,22 +300,6 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.1)
   rubocop-rails-omakase
-=======
-  arm64-darwin
-  x86_64-darwin
-
-DEPENDENCIES
-  bootsnap
-  bootstrap (~> 5.0.2)
-  capybara
-  debug
-  importmap-rails
-  jbuilder
-  mysql2 (~> 0.5)
-  puma (~> 5.0)
-  rails (~> 7.0.8, >= 7.0.8.4)
-  sassc-rails
->>>>>>> 186978c1c638b88bc7baf605f23329f950bef860
   selenium-webdriver
   sprockets-rails
   stimulus-rails
@@ -327,11 +307,5 @@ DEPENDENCIES
   tzinfo-data
   web-console
 
-<<<<<<< HEAD
-=======
-RUBY VERSION
-   ruby 3.1.4p223
-
->>>>>>> 186978c1c638b88bc7baf605f23329f950bef860
 BUNDLED WITH
    2.5.18
