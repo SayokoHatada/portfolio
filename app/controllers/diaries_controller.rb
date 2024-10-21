@@ -46,10 +46,11 @@ class DiariesController < ApplicationController
             }
           )
 
-          Rails.logger.debug("Params: #{params.inspect}")
+          Rails.logger.debug("OpenAI response: #{response.inspect}")
 
-          if response["choices"] && response["choices"].first && response["choices"].first["message"]
-            corrected_text = response["choices"].first["message"]["content"].strip
+          corrected_text = response.dig("choices", 0, "message", "content")&.strip
+
+          if corrected_text.present?
             @diary.update(corrected_body: corrected_text)
             @corrected_text = corrected_text
           else
