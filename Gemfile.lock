@@ -103,9 +103,12 @@ GEM
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.0)
+    event_stream_parser (1.0.0)
     faraday (2.11.0)
       faraday-net_http (>= 2.0, < 3.4)
       logger
+    faraday-multipart (1.0.4)
+      multipart-post (~> 2)
     faraday-net_http (3.3.0)
       net-http
     globalid (1.2.1)
@@ -142,6 +145,7 @@ GEM
     msgpack (1.7.2)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
+    multipart-post (2.4.1)
     net-http (0.4.1)
       uri
     net-imap (0.4.16)
@@ -263,6 +267,10 @@ GEM
       rubocop-minitest
       rubocop-performance
       rubocop-rails
+    ruby-openai (7.3.0)
+      event_stream_parser (>= 0.3.0, < 2.0.0)
+      faraday (>= 1)
+      faraday-multipart (>= 1)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     securerandom (0.3.1)
@@ -334,6 +342,7 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.2.1)
   rubocop-rails-omakase
+  ruby-openai
   selenium-webdriver
   sorcery
   sprockets-rails

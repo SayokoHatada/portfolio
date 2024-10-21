@@ -1,0 +1,23 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <h2 class="mb-4">添削前の英文</h2>
+      <div class="border p-4 shadow">
+        <p><%= @diary.body %></p>
+      </div>
+    </div>
+    <div class="col-md-6 text-center">
+      <h2 class="mb-4">添削後の英文</h2>
+      <div class="border p-4 shadow">
+        <p><%= @diary.corrected_body %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6 d-flex justify-content-center">
+    <%= link_to '編集', correct_diary_path(@diary), class: "btn btn-warning me-3" %>
+    <%= link_to '削除', @diary, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

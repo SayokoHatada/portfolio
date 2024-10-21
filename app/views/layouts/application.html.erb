@@ -10,14 +10,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>  </head>
 
   <body>
-    <div class="container">
-    <% if logged_in? %>
-      <%= render "shared/header" %>
-    <% else %>
-      <%= render "shared/before_login_header" %>
-    <% end %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+    <div class="container-fluid">
+      <div class="row">       
+        <div class="col">
+          <% if logged_in? %>
+            <%= render "shared/header" %>
+          <% else %>
+            <%= render "shared/before_login_header" %>
+          <% end %>
+          <%= yield %>
+          <%= render 'shared/footer' %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
