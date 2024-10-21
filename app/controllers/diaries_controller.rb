@@ -47,7 +47,7 @@ class DiariesController < ApplicationController
           )
 
           Rails.logger.debug("OpenAI response: #{response.inspect}")
-          
+
           corrected_text = response.dig("choices", 0, "message", "content")&.strip
 
           if corrected_text.present?
