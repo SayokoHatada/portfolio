@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <h2 class="mb-4">添削前の英文</h2>
+      <div class="border p-4 shadow">
+        <%= form_with(model: @diary, local: true) do |form| %>
+          <div class="mb-3 text-start">
+            <label for="diary_title" class="form-label"><strong>Title</strong></label>
+            <%= form.text_field :title, class: "form-control"%>
+          </div>
+
+          <div class="mb-3 text-start">
+            <label for="diary_body" class="form-label"><strong>本文を編集:</strong></label>
+            <%= form.text_area :body, rows: 5, class: "form-control"%>
+          </div>
+
+          <div class="d-flex justify-content-between">
+            <%= form.submit "Save the Change", class: "btn btn-success w-45" %>
+            <%= form.submit "Correct", name: "correct", id: 'correct-button', class: "btn btn-primary w-45", data: { turbo: true } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-6 text-center">
+      <h2 class="mb-4">添削後の英文</h2>
+      <div class="border p-4 shadow">
+        <% if @diary.corrected_body.present? %>
+          <p><%= @diary.corrected_body %></p>
+        <% else %>
+          <p>添削結果がありません。</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-3">
+    <%= link_to 'Save', diary_path(@diary), class: "btn btn-success w-100" %>    
+    </div>
+  </div>
+</div>

@@ -13,7 +13,13 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "top#index"
   resources :users, only: %i[new create]
-  resources :diaries, only: %i[index new create]
+  resources :diaries do
+    member do
+      get :correct
+      patch :correct
+    end
+  end
+
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"

@@ -1,25 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-none d-md-block bg-light sidebar mt-5">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              My Diary
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              プロフィール編集
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-5">
-      <h2>マイページ</h2>
-      <p>ここにコンテンツが入ります。</p>
+      <h2>Diaries</h2>
+      
+      <% if @diaries.present? %>
+        <ul class="list-group">
+          <% @diaries.each do |diary| %>
+            <li class="list-group-item">
+              <h5><%= diary.title %></h5>
+              <p><%= truncate(diary.body, length: 100) %></p>
+              <%= link_to '詳細を見る', diary_path(diary), class: 'btn btn-primary' %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>日記はまだありません。</p>
+      <% end %>
+      
     </main>
   </div>
 </div>
