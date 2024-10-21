@@ -21,18 +21,18 @@ class DiariesController < ApplicationController
   end
 
   def correct
-    @diary = Diary.find(params[:id]) 
+    @diary = Diary.find(params[:id])
   end
 
   def update
     @diary = Diary.find(params[:id])
-  
+
     if @diary.update(diary_params)
       if params[:correct].present?
         english_text = @diary.body
-  
+
         client = OpenAI::Client.new(access_token: Rails.application.credentials.openai[:api_key])
-  
+
         begin
           response = client.chat(
             parameters: {
@@ -43,9 +43,9 @@ class DiariesController < ApplicationController
               max_tokens: 150
             }
           )
-  
-          if response['choices'] && response['choices'].first && response['choices'].first['message']
-            corrected_text = response['choices'].first['message']['content'].strip
+
+          if response["choices"] && response["choices"].first && response["choices"].first["message"]
+            corrected_text = response["choices"].first["message"]["content"].strip
             @diary.update(corrected_body: corrected_text)
             @corrected_text = corrected_text
           else
