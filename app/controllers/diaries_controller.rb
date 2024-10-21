@@ -55,30 +55,29 @@ class DiariesController < ApplicationController
           handle_error_response("添削に失敗しました: #{e.message}")
         end
       end
-  
+
       redirect_to correct_diary_path(@diary)
     else
       render :edit
     end
   end
-  
 
   def destroy
     @diary = Diary.find(params[:id])
 
     if @diary.destroy
-      redirect_to diaries_path, notice: '日記が削除されました。'
+      redirect_to diaries_path, notice: "日記が削除されました。"
     else
-      redirect_to diaries_path, alert: '日記の削除に失敗しました。'
+      redirect_to diaries_path, alert: "日記の削除に失敗しました。"
     end
   end
-  
+
   private
 
   def diary_params
     params.require(:diary).permit(:title, :body)
   end
-  
+
   def handle_error_response(error_message)
     respond_to do |format|
       format.turbo_stream do
