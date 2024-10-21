@@ -3,7 +3,7 @@
     <div class="col-md-6 text-center">
       <h2 class="mb-4">添削前の英文</h2>
       <div class="border p-4 shadow">
-        <%= form_with(model: @diary, local: true) do |form| %>
+      <%= form_with(model: @diary, local: true, id: 'correct-form') do |form| %>
           <div class="mb-3 text-start">
             <label for="diary_title" class="form-label"><strong>Title</strong></label>
             <%= form.text_field :title, class: "form-control"%>
