@@ -27,6 +27,8 @@ class DiariesController < ApplicationController
   def update
     @diary = Diary.find(params[:id])
 
+    Rails.logger.debug("Params: #{params.inspect}")
+
     if @diary.update(diary_params)
       if params[:correct].present?
         english_text = @diary.body
@@ -43,6 +45,8 @@ class DiariesController < ApplicationController
               max_tokens: 150
             }
           )
+
+          Rails.logger.debug("Params: #{params.inspect}")
 
           if response["choices"] && response["choices"].first && response["choices"].first["message"]
             corrected_text = response["choices"].first["message"]["content"].strip
