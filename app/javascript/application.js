@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (form) {
     form.addEventListener('submit', (event) => {
-      event.preventDefault(); // デフォルトの送信を防ぐ
-      const formData = new FormData(form); // フォームデータを取得
+      event.preventDefault();
+      const formData = new FormData(form);
 
       fetch(form.action, {
         method: 'PATCH',
