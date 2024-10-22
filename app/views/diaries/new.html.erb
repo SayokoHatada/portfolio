@@ -18,7 +18,7 @@
       <%= form.text_field :title, class: "form-control", placeholder: "タイトルを入力..." %>
     </div>
     <div class="mb-3">
-      <label for="diary_body" class="form-label">英文を入力してください</label>
+      <label for="diary_body" class="form-label">英文を入力してください(50-2000字)</label>
       <%= form.text_area :body, rows: 5, class: "form-control", placeholder: "ここに英文を入力..." %>
     </div>
     <%= form.submit "Create", class: "btn btn-primary" %>
