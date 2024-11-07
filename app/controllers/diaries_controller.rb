@@ -27,7 +27,7 @@ class DiariesController < ApplicationController
   def update
     @diary = Diary.find(params[:id])
     Rails.logger.debug("Params: #{params.inspect}")
-  
+
     if @diary.update(diary_params)
       if params[:correct].present?
         correction_result = perform_correction(@diary.body)
@@ -48,7 +48,7 @@ class DiariesController < ApplicationController
           handle_error_response("画像生成に失敗しました。")
           return
         end
-      end  
+      end
 
       redirect_to @diary
     else
@@ -85,9 +85,9 @@ class DiariesController < ApplicationController
           max_tokens: 150
         }
       )
-  
+
       Rails.logger.debug("OpenAI response: #{response.inspect}")
-  
+
       corrected_text = response.dig("choices", 0, "message", "content")&.strip
       if corrected_text.present?
         { success: true, corrected_text: corrected_text }
@@ -110,7 +110,7 @@ class DiariesController < ApplicationController
 
   def generate_image(keyword)
     client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
-    
+
     begin
       response = client.images.generate(
         parameters: {
@@ -119,7 +119,7 @@ class DiariesController < ApplicationController
           size: "1024x1024"
         }
       )
-      
+
       image_url = response.dig("data", 0, "url")
       return image_url if image_url.present?
     rescue => e
