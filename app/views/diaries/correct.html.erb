@@ -14,6 +14,11 @@
             <%= form.text_area :body, rows: 5, class: "form-control"%>
           </div>
 
+          <div class="mb-3 text-start">
+            <label for="diary_keyword" class="form-label"><strong>キーワード</strong></label>
+            <%= form.text_area :keyword, class: "form-control"%>
+          </div>
+
           <div class="d-flex justify-content-between">
             <%= form.submit "Save the Change", class: "btn btn-success w-45" %>
             <%= form.submit "Correct", name: "correct", id: 'correct-button', class: "btn btn-primary w-45", data: { turbo: true } %>
@@ -23,6 +28,12 @@
     </div>
 
     <div class="col-md-6 text-center">
+      <% if @diary.image_url.present? %>
+        <h2>生成された画像</h2>
+        <img src="<%= @diary.image_url %>" class="rounded-circle" alt="生成された画像" width="300" height="300">
+      <% else %>
+        <p>画像は生成されていません。</p>
+      <% end %>
       <h2 class="mb-4">添削後の英文</h2>
       <div class="border p-4 shadow" id="correction-result">
         <% if @diary.corrected_body.present? %>

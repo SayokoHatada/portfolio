@@ -29,3 +29,5 @@
 
 en:
   hello: "Hello world"
+  diary:
+    title: "Today's Diary"
