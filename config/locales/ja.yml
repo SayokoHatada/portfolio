@@ -1,0 +1,10 @@
+ja:
+  date:
+    month_names: [ ~, "January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December" ]
+    day_names: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
+    abbr_day_names: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  diary:
+    title: "Today's Diary"
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
