@@ -1,6 +1,20 @@
 .logo-img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     margin-right: 10px;
   }
+
+.navbar {
+    background-color: #fff;
+    border: 1px solid #8d8477;
+    border-radius: 8px;
+  }
+
+.title {
+    color:rgb(180, 177, 175);
+}
+
+.navbar-toggler {
+  border: none;
+}

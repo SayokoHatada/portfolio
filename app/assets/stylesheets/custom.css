@@ -1,0 +1,161 @@
+:root{
+    --font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, "游ゴシック体", "Yu Gothic", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+body {
+    font-family: var(--font-family-sans-serif);
+    background-color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-sans-serif);
+}
+
+.diaries-title {
+    text-align: center;
+    font-size: 2.0em;
+    font-weight: bold;
+    color: #5a5a5a;
+    letter-spacing: 1px;
+    margin: 50px 0px;
+}
+
+.simple-calendar {
+    width: 75%;
+    background-color: #fff;
+    border: 1px solid #8d8477;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.calendar-heading {
+    width: 100%;
+    text-align: center;
+    color: #5a5a5a;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.table {
+    table-layout: fixed;
+}
+
+.table th,
+.table td {
+    color: #5a5a5a;
+    text-align: center;
+    margin: 10px;
+}
+
+.day {
+    width: 100%;
+    height: 100px;
+    margin: 0 5px;
+    font-weight: bold;
+    color: #5a5a5a;
+    transition: background-color 0.2s ease;
+}
+
+.wday-0, .wday-6 { color: #c47b6b !important;}
+.wday-1, .wday-2, .wday-3, .wday-4, .wday-5 {
+    color: #8d8477 !important;
+}
+
+.today {
+    background-color: #d3c7b8 !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.day-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.date-number {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+  
+.icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-label {
+    width: 100%;
+}
+
+.diaries-body {
+    width: 60%;
+    background-color: #fff;
+    border: 1px solid #8d8477;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 0 auto;
+    color: #5a5a5a;
+}
+
+.btn-primary, .btn-danger, .btn-warning, .btn-success {
+    background-color: rgb(231, 224, 216);
+    border-color: #8d8477; 
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-danger:hover,
+.btn-warning:hover,
+.btn-success:hover {
+    background-color: #8d8477;
+    border-color: rgb(231, 224, 216);
+    color: #fff;
+}
+
+.btn-primary:focus,
+.btn-danger:focus,
+.btn-warning:focus,
+.btn-success:focus {
+    background-color: #8d8477  !important;
+    border-color: rgb(231, 224, 216)  !important;
+    color: #fff  !important;
+}
+
+.btn-primary:active,
+.btn-danger:active,
+.btn-warning:active,
+.btn-success:active {
+    background-color: #8d8477 !important;
+    border-color: rgb(231, 224, 216) !important;
+    color: #fff !important;
+}
+
+.icon-container2 {
+    display: grid;
+    place-items: center;
+    width: 10%;
+}
+
+.show-box {
+    background-color: #fff;
+    border: 1px solid #8d8477;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1.5rem;
+    width: 45%;
+    box-sizing: border-box;    
+}
+
+.diary-image {
+    margin: auto;
+    display: block;
+}
+
+.diary-title {
+    text-align: center;
+    font-family: var(--font-family-sans-serif);
+    color: #5a5a5a;
+}

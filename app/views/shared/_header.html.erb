@@ -4,13 +4,12 @@
       <%= image_tag 'logo.png', class: 'rounded-circle logo-img' %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      Menu
-      <i class="fas fa-bars"></i>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto py-4 py-lg-0">
         <li class="nav-item">
-          <%= link_to "Your Diaries", diaries_path, class: "nav-link px-lg-3 py-3 py-lg-4 btn btn-beige" %>
+          <%= link_to "My Diaries", diaries_path, class: "nav-link px-lg-3 py-3 py-lg-4 btn btn-beige" %>
         </li>
         <li class="nav-item">
         <%= link_to "new", new_diary_path, class: "nav-link px-lg-3 py-3 py-lg-4 btn btn-beige" %>

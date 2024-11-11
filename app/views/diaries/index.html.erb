@@ -1,21 +1,22 @@
 <div class="container-fluid">
   <div class="row">
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-5">
-      <h2>My Diaries</h2>
+    <main role="main" class="col-md-12 ml-sm-auto px-4 mt-5">
+      <h2 class="diaries-title fst-italic">ー My Diaries ー</h2>
       
-      <% if @diaries.present? %>
-        <ul class="list-group">
-          <% @diaries.each do |diary| %>
-            <li class="list-group-item">
-              <h5><%= diary.title %></h5>
-              <p><%= truncate(diary.body, length: 100) %></p>
-              <%= link_to '詳細を見る', diary_path(diary), class: 'btn btn-primary' %>
-            </li>
-          <% end %>
-        </ul>
-      <% else %>
-        <p>日記はまだありません。</p>
-      <% end %>
+        <%= month_calendar(events: @diaries) do |date, diaries| %>
+          <div class="day-container">
+            <div class="date-number"><%= date.day %></div>
+            <div class="icon-container">
+              <% diaries.each do |diary| %>
+                <% if diary.created_at.to_date == date %>
+                  <%= link_to diary_path(diary) do %>
+                    <i class="bi bi-journal-richtext" style="font-size: 1.2em; color: #5a5a5a;"></i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>    
       
     </main>
   </div>

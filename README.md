@@ -12,9 +12,7 @@
 
 ■ 機能候補 MVPリリース ・ユーザー登録 ・ログイン ・添削機能 ・画像生成機能(日記の内容を元にユーザーが単語数個を入力し画像生成させる)
 
-本リリース ・簡単3択クイズ(トップ画面にてエンタメ性を少し持たせ楽しめる要素を追加したい)
-
-■ 機能の実装方針予定 添削機能：　Language Tool 画像生成：　Stable Diffusion
+■ 機能の実装方針予定 添削機能&画像生成：OpenAI
 
 ■ 画面遷移図のリンク https://www.figma.com/design/x5pR9bHkPmLKpVZPtiKzRq/Portfolio?node-id=0-1&t=8zaH9eaWMQ2dT5n5-1
 

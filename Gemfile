@@ -61,3 +61,4 @@ end
 
 gem "sorcery"
 gem "ruby-openai"
+gem "simple_calendar"

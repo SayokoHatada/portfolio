@@ -1,21 +1,21 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
-      <h2 class="mb-4">添削前の英文</h2>
+      <h2 class="mb-4">Your Original Diary</h2>
       <div class="border p-4 shadow">
       <%= form_with(model: @diary, local: false, id: 'correct-form') do |form| %>
           <div class="mb-3 text-start">
-            <label for="diary_title" class="form-label"><strong>Title</strong></label>
+            <label for="diary_title" class="form-label"><strong>Title:</strong></label>
             <%= form.text_field :title, class: "form-control"%>
           </div>
 
           <div class="mb-3 text-start">
-            <label for="diary_body" class="form-label"><strong>本文を編集:</strong></label>
+            <label for="diary_body" class="form-label"><strong>Diary:</strong></label>
             <%= form.text_area :body, rows: 5, class: "form-control"%>
           </div>
 
           <div class="mb-3 text-start">
-            <label for="diary_keyword" class="form-label"><strong>キーワード</strong></label>
+            <label for="diary_keyword" class="form-label"><strong>Keyword:</strong></label>
             <%= form.text_area :keyword, class: "form-control"%>
           </div>
 
@@ -29,25 +29,18 @@
 
     <div class="col-md-6 text-center">
       <% if @diary.image_url.present? %>
-        <h2>生成された画像</h2>
-        <img src="<%= @diary.image_url %>" class="rounded-circle" alt="生成された画像" width="300" height="300">
+        <img src="<%= @diary.image_url %>" class="rounded-circle" width="300" height="300">
       <% else %>
-        <p>画像は生成されていません。</p>
+        <p>No Image yet</p>
       <% end %>
-      <h2 class="mb-4">添削後の英文</h2>
+      <h2 class="mb-4">Corrected Diary</h2>
       <div class="border p-4 shadow" id="correction-result">
         <% if @diary.corrected_body.present? %>
           <p><%= @diary.corrected_body %></p>
         <% else %>
-          <p>添削結果がありません。</p>
+          <p>No Correction yet</p>
         <% end %>
       </div>
-    </div>
-  </div>
-
-  <div class="row justify-content-center mt-4">
-    <div class="col-md-3">
-    <%= link_to 'Save', diary_path(@diary), class: "btn btn-success w-100" %>    
     </div>
   </div>
 </div>

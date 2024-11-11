@@ -111,6 +111,8 @@ class DiariesController < ApplicationController
   def generate_image(keyword)
     client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
 
+    prompt = "#{keyword}, illustrated in a style similar to a children's diary drawing or a watercolor sketch, simple and warm, not realistic"
+
     begin
       response = client.images.generate(
         parameters: {
