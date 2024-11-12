@@ -1,6 +1,10 @@
 class DiariesController < ApplicationController
+  before_action :require_login
+  before_action :set_diary, only: [ :show, :update, :destroy ]
+  before_action :ensure_correct_user, only: [ :show, :update, :destroy ]
+
   def index
-    @diaries = Diary.all.includes(:user).order(created_at: :desc)
+    @diaries = current_user.diaries.order(created_at: :desc)
   end
 
   def new
@@ -13,8 +17,11 @@ class DiariesController < ApplicationController
 
   def create
     @diary = current_user.diaries.build(diary_params)
+
     if @diary.save
-      redirect_to correct_diary_path(@diary)
+      perform_correction_and_generate_image(@diary)
+
+      redirect_to @diary
     else
       render :new
     end
@@ -25,31 +32,10 @@ class DiariesController < ApplicationController
   end
 
   def update
-    @diary = Diary.find(params[:id])
-    Rails.logger.debug("Params: #{params.inspect}")
-
     if @diary.update(diary_params)
       if params[:correct].present?
-        correction_result = perform_correction(@diary.body)
-        if correction_result[:success]
-          @diary.update(corrected_body: correction_result[:corrected_text])
-          @corrected_text = correction_result[:corrected_text]
-        else
-          handle_error_response(correction_result[:error_message])
-          return
-        end
+        perform_correction_and_generate_image(@diary)
       end
-
-      if @diary.keyword.present?
-        image_url = generate_image(@diary.keyword)
-        if image_url
-          @diary.update(image_url: image_url)
-        else
-          handle_error_response("画像生成に失敗しました。")
-          return
-        end
-      end
-
       redirect_to @diary
     else
       render :edit
@@ -69,11 +55,24 @@ class DiariesController < ApplicationController
   private
 
   def diary_params
-    params.require(:diary).permit(:title, :body, :keyword)
+    params.require(:diary).permit(:title, :body, :keyword).merge(user_id: current_user.id)
+  end
+
+  def perform_correction_and_generate_image(diary)
+    correction_result = perform_correction(diary.body)
+    if correction_result[:success]
+      diary.update(corrected_body: correction_result[:corrected_text])
+    end
+
+    if diary.keyword.present?
+      image_url = generate_image(diary.keyword)
+      diary.update(image_url: image_url) if image_url
+    end
   end
 
   def perform_correction(body)
-    client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
+    api_key = Rails.env.production? ? ENV["OPENAI_API_KEY"] : Rails.application.credentials.dig(:openai, :api_key)
+    client = OpenAI::Client.new(access_token: api_key)
 
     begin
       response = client.chat(
@@ -99,24 +98,15 @@ class DiariesController < ApplicationController
     end
   end
 
-  def handle_error_response(error_message)
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: turbo_stream.replace("correction-result", partial: "diaries/error_message", locals: { error_message: error_message })
-      end
-      format.html { redirect_to @diary, alert: error_message }
-    end
-  end
-
   def generate_image(keyword)
-    client = OpenAI::Client.new(access_token: Rails.application.credentials.dig(:openai, :api_key))
-
+    api_key = Rails.env.production? ? ENV["OPENAI_API_KEY"] : Rails.application.credentials.dig(:openai, :api_key)
+    client = OpenAI::Client.new(access_token: api_key)
     prompt = "#{keyword}, illustrated in a style similar to a children's diary drawing or a watercolor sketch, simple and warm, not realistic"
 
     begin
       response = client.images.generate(
         parameters: {
-          prompt: keyword,
+          prompt: prompt,
           n: 1,
           size: "1024x1024"
         }
@@ -128,5 +118,15 @@ class DiariesController < ApplicationController
       Rails.logger.error("画像生成エラー: #{e.message}")
     end
     nil
+  end
+
+  def set_diary
+    @diary = Diary.find(params[:id])
+  end
+
+  def ensure_correct_user
+    if @diary.nil? || @diary.user != current_user
+      redirect_to diaries_path, alert: "アクセス権がありません。"
+    end
   end
 end
