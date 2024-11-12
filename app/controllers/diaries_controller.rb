@@ -1,7 +1,7 @@
 class DiariesController < ApplicationController
   before_action :require_login
-  before_action :set_diary, only: [:show, :update, :destroy]
-  before_action :ensure_correct_user, only: [:show, :update, :destroy]
+  before_action :set_diary, only: [ :show, :update, :destroy ]
+  before_action :ensure_correct_user, only: [ :show, :update, :destroy ]
 
   def index
     @diaries = current_user.diaries.order(created_at: :desc)
@@ -17,7 +17,7 @@ class DiariesController < ApplicationController
 
   def create
     @diary = current_user.diaries.build(diary_params)
-    
+
     if @diary.save
       perform_correction_and_generate_image(@diary)
 
@@ -71,7 +71,7 @@ class DiariesController < ApplicationController
   end
 
   def perform_correction(body)
-    api_key = Rails.env.production? ? ENV['OPENAI_API_KEY'] : Rails.application.credentials.dig(:openai, :api_key)
+    api_key = Rails.env.production? ? ENV["OPENAI_API_KEY"] : Rails.application.credentials.dig(:openai, :api_key)
     client = OpenAI::Client.new(access_token: api_key)
 
     begin
@@ -99,7 +99,7 @@ class DiariesController < ApplicationController
   end
 
   def generate_image(keyword)
-    api_key = Rails.env.production? ? ENV['OPENAI_API_KEY'] : Rails.application.credentials.dig(:openai, :api_key)
+    api_key = Rails.env.production? ? ENV["OPENAI_API_KEY"] : Rails.application.credentials.dig(:openai, :api_key)
     client = OpenAI::Client.new(access_token: api_key)
     prompt = "#{keyword}, illustrated in a style similar to a children's diary drawing or a watercolor sketch, simple and warm, not realistic"
 
@@ -129,5 +129,4 @@ class DiariesController < ApplicationController
       redirect_to diaries_path, alert: "アクセス権がありません。"
     end
   end
-
 end
