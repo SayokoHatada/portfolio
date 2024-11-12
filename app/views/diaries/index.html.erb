@@ -8,7 +8,7 @@
             <div class="date-number"><%= date.day %></div>
             <div class="icon-container">
               <% diaries.each do |diary| %>
-                <% if diary.created_at.to_date == date %>
+                <% if diary.user == current_user && diary.created_at.to_date == date %>
                   <%= link_to diary_path(diary) do %>
                     <i class="bi bi-journal-richtext" style="font-size: 1.2em; color: #5a5a5a;"></i>
                   <% end %>
