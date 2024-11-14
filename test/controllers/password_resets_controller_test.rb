@@ -6,7 +6,7 @@ class PasswordResetsControllerTest < ActionDispatch::IntegrationTest
     @user.reset_password_token = "valid_token"
     @user.save
   end
-  
+
   test "should get new" do
     get new_password_reset_url
     assert_response :success
