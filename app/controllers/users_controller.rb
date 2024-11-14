@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       redirect_to login_path, success: "User registration completed"
     else
       flash.now[:danger] = "User registration failed"
-      render :new status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
