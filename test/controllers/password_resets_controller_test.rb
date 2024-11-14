@@ -2,22 +2,24 @@ require "test_helper"
 
 class PasswordResetsControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get password_resets_new_url
+    get new_password_reset_url
     assert_response :success
   end
 
   test "should get create" do
-    get password_resets_create_url
-    assert_response :success
+    post password_resets_url, params: { email: "one@example.com" }
+    assert_response :redirect
   end
 
   test "should get edit" do
-    get password_resets_edit_url
+    user = users(:one)
+    get edit_password_reset_url(user.id)
     assert_response :success
   end
 
   test "should get update" do
-    get password_resets_update_url
-    assert_response :success
+    user = users(:one)
+    patch password_reset_url(user.id), params: { user: { password: "newpassword", password_confirmation: "newpassword" } }
+    assert_response :redirect
   end
 end
