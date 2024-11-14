@@ -1,0 +1,15 @@
+<div class="text-center" style="padding:50px 0">
+  <div class="logo">Password Reset</div>
+  <div class="login-form-1">
+    <%= form_with url:password_resets_path, method: :post,local: true do |f| %>
+      <div class="main-login-form">
+        <div class="login-group">
+          <div class="form-group">
+            <%=f.label :email, User.human_attribute_name(:email)%>
+            <%=f.text_field :email,class: "form-control"%>
+          </div>
+        <%= f.submit "Send", class: 'login-button' %>
+        </div>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
       patch :correct
     end
   end
+  resources :password_resets, only: %i[new create edit update]
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
