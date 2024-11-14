@@ -1,5 +1,5 @@
 require "test_helper"
-include Rails.application.routes.url_helpers 
+include Rails.application.routes.url_helpers
 
 class UserMailerTest < ActionMailer::TestCase
   test "reset_password_email" do
