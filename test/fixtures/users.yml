@@ -7,11 +7,11 @@
 one:
   email: one@example.com
   name: User One
-  password: <%= BCrypt::Password.create("password123") %>
-  password_confirmation: <%= BCrypt::Password.create("password123") %>
+  crypted_password: <%= BCrypt::Password.create("password123") %>
+  salt: <%= SecureRandom.hex(8) %>
 
 two:
   email: two@example.com
   name: User Two
-  password: <%= BCrypt::Password.create("password456") %>
-  password_confirmation: <%= BCrypt::Password.create("password456") %>
+  crypted_password: <%= BCrypt::Password.create("password456") %>
+  salt: <%= SecureRandom.hex(8) %>
