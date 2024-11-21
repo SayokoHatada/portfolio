@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :diaries do
     member do
       get :correct
-      patch :correct
     end
   end
   resources :password_resets, only: %i[new create edit update]
@@ -25,4 +24,9 @@ Rails.application.routes.draw do
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
+  get "oauths/oauth"
+  get "oauths/callback"
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 end

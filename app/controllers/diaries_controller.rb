@@ -33,10 +33,8 @@ class DiariesController < ApplicationController
 
   def update
     if @diary.update(diary_params)
-      if params[:correct].present?
-        perform_correction_and_generate_image(@diary)
-      end
-      redirect_to @diary
+      perform_correction_and_generate_image(@diary)
+      redirect_to diary_path(@diary)
     else
       render :edit
     end
@@ -46,9 +44,9 @@ class DiariesController < ApplicationController
     @diary = Diary.find(params[:id])
 
     if @diary.destroy
-      redirect_to diaries_path, notice: "日記が削除されました。"
+      redirect_to diaries_path, notice: "日記が削除されました"
     else
-      redirect_to diaries_path, alert: "日記の削除に失敗しました。"
+      redirect_to diaries_path, alert: "日記の削除に失敗しました"
     end
   end
 

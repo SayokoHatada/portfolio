@@ -2,7 +2,12 @@
   <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
       <div class="col-md-10 col-lg-8 col-xl-7">
-        <div class="small text-center text-muted fst-italic">Copyright &copy; Pictio Diary 2024</div>
+        <div class="small text-center text-muted">
+          <%= link_to "Contact", "https://forms.gle/4kwNg9XWSLv58QeFA", target: "_blank", rel: "noopener noreferrer", class: "mx-2" %>
+          <%= link_to "Privacy Policy", page_path("privacy_policy"), class: "mx-2" %>
+          <%= link_to "Terms Of Use", page_path("terms_of_use"), class: "mx-2" %>
+        </div>
+        <div class="small text-center text-muted">Copyright &copy; 2024 - Pictio Diary</div>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <div class="col-md-6 text-center">
       <h2 class="mb-4">Your Original Diary</h2>
       <div class="border p-4 shadow">
-      <%= form_with(model: @diary, local: false, id: 'correct-form') do |form| %>
+      <%= form_with(model: @diary, local: true, id: 'correct-form') do |form| %>
           <div class="mb-3 text-start">
             <label for="diary_title" class="form-label"><strong>Title:</strong></label>
             <%= form.text_field :title, class: "form-control"%>
@@ -20,7 +20,7 @@
           </div>
 
           <div class="d-flex justify-content-between">
-            <%= form.submit "Correct", name: "correct", id: 'correct-button', class: "btn btn-primary w-45", data: { turbo: true } %>
+            <%= form.submit "Update", id: 'correct-button', class: "btn btn-primary w-45", data: { turbo: false } %>
           </div>
         <% end %>
       </div>
