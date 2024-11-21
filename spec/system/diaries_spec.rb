@@ -40,7 +40,7 @@ RSpec.describe "Diaries", type: :system do
           fill_in "Your diary", with: long_body
           fill_in "keyword", with: "test, sample, system check"
           click_button "Create"
-          expect(page).to have_text("test_title", wait:50)
+          expect(page).to have_text("test_title", wait: 50)
           expect(page).to have_content long_body
 
           diary = Diary.last
