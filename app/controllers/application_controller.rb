@@ -19,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def public_page?
-    ["/pages/privacy_policy", "/pages/terms_of_use"].include?(request.path)
+    [ "/pages/privacy_policy", "/pages/terms_of_use" ].include?(request.path)
   end
 end

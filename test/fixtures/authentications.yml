@@ -4,7 +4,11 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+authentication_1:
+  user_id: 1
+  provider: "line"
+  uid: "unique_user_id_from_line"
+
 # column: value
 #
 two: {}

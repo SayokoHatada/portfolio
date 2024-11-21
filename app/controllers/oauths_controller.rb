@@ -16,7 +16,7 @@ class OauthsController < ApplicationController
       redirect_to login_path, alert: "ログインに失敗しました: #{auth_params[:error_description]}"
       return
     end
-  
+
     if (@user = login_from(provider))
       Rails.logger.debug "User logged in: #{@user.inspect}"
       redirect_to diaries_path, notice: "#{provider.titleize}でログインしました"
@@ -34,7 +34,7 @@ class OauthsController < ApplicationController
       end
     end
   end
-  
+
   private
 
   def auth_params
