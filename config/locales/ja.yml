@@ -1,4 +1,19 @@
 ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        blank: "%{attribute}を入力してください"
+        too_short: "%{attribute}は%{count}文字以上で入力してください"
+        too_long: "%{attribute}は%{count}文字以下で入力してください"
+      models:
+        user:
+          attributes:
+            email:
+              taken: "そのEmailはすでに存在します"
+            password_confirmation:
+              confirmation: "Passwordと入力が一致しません"
+
   date:
     month_names: [ ~, "January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December" ]
     day_names: [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]

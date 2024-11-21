@@ -13,9 +13,10 @@
             <%= form.label :password, class: 'sr-only' %>
             <%= form.password_field :password, class: 'form-control' %>
           </div>
-        <%= form.submit 'ログイン', class: 'login-button' %>
+        <%= form.submit 'Login', class: 'login-button' %>
         </div>
       </div>
+      <%= link_to "Login with Line", auth_at_provider_path(provider: :line) %>
       <div class="etc-login-form">
         <%= link_to 'パスワードをお忘れの方はこちら', new_password_reset_path %>
       </div>
