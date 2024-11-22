@@ -12,6 +12,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-sans-serif);
 }
 
+.top_introduction {
+    color: #b99e7dd7;
+    font-weight: bold;
+}
+
 .diaries-title {
     text-align: center;
     font-size: 2.0em;
@@ -22,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .simple-calendar {
-    width: 75%;
+    width: 100%;
     background-color: #fff;
     border: 1px solid #8d8477;
     border-radius: 8px;
@@ -91,7 +96,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .diaries-body {
-    width: 60%;
+    width: 80%;
     background-color: #fff;
     border: 1px solid #8d8477;
     border-radius: 8px;
