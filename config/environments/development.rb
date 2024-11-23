@@ -82,5 +82,5 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
   config.web_console.allowed_ips = "192.168.65.1"
 
-  config.hosts << "2d23-218-228-228-96.ngrok-free.app"
+  config.hosts << "3a57-218-228-228-96.ngrok-free.app"
 end
