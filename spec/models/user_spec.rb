@@ -35,7 +35,8 @@ RSpec.describe User, type: :model do
       end
 
       it "メールアドレスが重複する場合、エラーになる" do
-        user.email = "test@example.com"
+        existing_user = create(:user, email: "duplicate@example.com")
+        user.email = "duplicate@example.com"
         expect(user).to be_invalid
         expect(user.errors[:email]).to eq [ "そのEmailはすでに存在します" ]
       end

@@ -5,11 +5,12 @@
         <img src="<%= @diary.image_url %>" class="rounded-circle" width="300" height="300">
       <% end %>
     </div>
-
+    
     <div class="col-md-6 text-center mt-5">
       <h2 class="mb-4 mt-4">Your Original Diary</h2>
       <div class="border p-4 shadow">
       <%= form_with(model: @diary, local: true, id: 'correct-form') do |form| %>
+        <%= render "layouts/error_messages", model: form.object %>
           <div class="mb-3 text-start">
             <label for="diary_title" class="form-label"><strong>Title:</strong></label>
             <%= form.text_field :title, class: "form-control"%>

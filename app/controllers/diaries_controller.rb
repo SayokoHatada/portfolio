@@ -23,11 +23,11 @@ class DiariesController < ApplicationController
 
       redirect_to @diary
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def correct
+  def edit
     @diary = Diary.find(params[:id])
   end
 
@@ -124,7 +124,7 @@ class DiariesController < ApplicationController
 
   def ensure_correct_user
     if @diary.nil? || @diary.user != current_user
-      redirect_to diaries_path, alert: "アクセス権がありません。"
+      redirect_to root_path, alert: "アクセス権がありません。"
     end
   end
 end
