@@ -56,7 +56,7 @@ RSpec.describe "Diaries", type: :system do
           fill_in "diary_body", with: long_body
           click_button "Create"
           expect(current_path).to eq new_diary_path
-          expect(page).to have_content("タイトルを入力してください")
+          expect(page).to have_content("を入力してください")
         end
       end
     end
@@ -104,6 +104,6 @@ RSpec.describe "Diaries", type: :system do
         expect(current_path).to eq root_path
         expect(page).to have_content("アクセス権がありません")
       end
-    end 
+    end
   end
 end
