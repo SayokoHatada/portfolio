@@ -20,7 +20,7 @@
 
   <div class="row justify-content-center mt-5">
     <div class="col-md-6 d-flex justify-content-center">
-    <%= link_to 'Edit', correct_diary_path(@diary), class: "btn btn-warning me-3" %>
+    <%= link_to 'Edit', edit_diary_path(@diary), class: "btn btn-warning me-3" %>
     <%= link_to 'Delete', @diary, data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-danger" %>
     </div>
   </div>

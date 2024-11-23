@@ -164,3 +164,9 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-sans-serif);
     color: #5a5a5a;
 }
+
+@media (max-width: 767px) {
+    .custom-background {
+      padding-bottom: 20px;
+    }
+}

@@ -10,7 +10,7 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in 'Email', with: user.email
         fill_in 'Password', with: 'password123'
         click_button 'Login'
-        expect(page).to have_content 'Login succeeded'
+        expect(page).to have_content 'ログインしました'
         expect(current_path).to eq diaries_path
       end
     end
@@ -21,7 +21,7 @@ RSpec.describe 'UserSessions', type: :system do
         fill_in 'Email', with: ''
         fill_in 'Password', with: 'password123'
         click_button 'Login'
-        expect(page).to have_content 'login failed'
+        expect(page).to have_content 'ログインに失敗しました'
         expect(current_path).to eq login_path
       end
     end

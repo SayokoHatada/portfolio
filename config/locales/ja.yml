@@ -13,6 +13,10 @@ ja:
               taken: "そのEmailはすでに存在します"
             password_confirmation:
               confirmation: "Passwordと入力が一致しません"
+        diary:
+          attributes:
+            title:
+              blank: "タイトルを入力してください"
 
   date:
     month_names: [ ~, "January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December" ]

@@ -12,7 +12,7 @@ RSpec.describe Diary, type: :model do
     it "titleがない場合にバリデーションが機能してinvalidになるか" do
       diary_without_title = build(:diary, title: "")
       expect(diary_without_title).to be_invalid
-      expect(diary_without_title.errors[:title]).to eq [ "Titleを入力してください" ]
+      expect(diary_without_title.errors[:title]).to eq [ "タイトルを入力してください" ]
     end
 
     it "bodyが50文字未満の場合、バリデーションエラーが出るか" do

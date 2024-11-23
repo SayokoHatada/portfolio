@@ -1,9 +1,9 @@
 require "rails_helper"
 
 RSpec.describe "Diaries", type: :system do
-  let(:user) { create(:user) }
-  let(:another_user) { create(:user) }
-  let(:diary) { create(:diary) }
+  let!(:user) { create(:user) }
+  let!(:another_user) { create(:user) }
+  let!(:diary) { create(:diary, user: user) }
 
   describe "ログイン前" do
     describe "ページ遷移確認" do
@@ -17,7 +17,7 @@ RSpec.describe "Diaries", type: :system do
 
       context "日記の編集ページにアクセス" do
         it "編集ページへのアクセスが失敗する" do
-          visit correct_diary_path(diary)
+          visit edit_diary_path(diary)
           expect(page).to have_content("ログインが必要です")
           expect(current_path).to eq login_path
         end
@@ -28,7 +28,7 @@ RSpec.describe "Diaries", type: :system do
   describe "ログイン後" do
     before do
       login_as(user)
-      expect(page).to have_content("Login succeeded")
+      expect(page).to have_content("ログインしました")
     end
 
     describe "日記新規作成" do
@@ -38,7 +38,7 @@ RSpec.describe "Diaries", type: :system do
           visit new_diary_path
           fill_in "Title", with: "test_title"
           fill_in "Your diary", with: long_body
-          fill_in "keyword", with: "test, sample, system check"
+          fill_in "Keyword", with: "test, sample, system check"
           click_button "Create"
           expect(page).to have_text("test_title", wait: 50)
           expect(page).to have_content long_body
@@ -56,13 +56,14 @@ RSpec.describe "Diaries", type: :system do
           fill_in "diary_body", with: long_body
           click_button "Create"
           expect(current_path).to eq new_diary_path
+          expect(page).to have_content("タイトルを入力してください")
         end
       end
     end
 
     describe "日記編集" do
       before do
-        visit correct_diary_path(diary)
+        visit edit_diary_path(diary)
       end
 
       context "フォームの入力値が正常" do
@@ -70,8 +71,8 @@ RSpec.describe "Diaries", type: :system do
           fill_in "diary_title", with: "Updated Title"
           fill_in "diary_body", with: "hello. This is me. Life is strange. Strange things. Orange is the new black. good doctor"
           fill_in "diary_keyword", with: "Updated Keyword"
-          click_button "correct-button"
-          expect(current_path).to eq diary_path(diary)
+          click_button "Update"
+          expect(page).to have_current_path(edit_diary_path(diary), wait: 100)
         end
       end
 
@@ -79,7 +80,7 @@ RSpec.describe "Diaries", type: :system do
         it "日記の編集が失敗する" do
           fill_in "diary_title", with: nil
           click_button "Update"
-          expect(current_path).to eq correct_diary_path(diary)
+          expect(current_path).to eq edit_diary_path(diary)
         end
       end
     end
@@ -95,5 +96,14 @@ RSpec.describe "Diaries", type: :system do
         expect(current_path).to eq diaries_path
       end
     end
+
+    describe "アクセスエラー" do
+      let!(:diary_by_another_user) { create(:diary, user: another_user) }
+      it "他ユーザーのページに行くとエラーになる" do
+        visit diary_path(diary_by_another_user)
+        expect(current_path).to eq root_path
+        expect(page).to have_content("アクセス権がありません")
+      end
+    end 
   end
 end

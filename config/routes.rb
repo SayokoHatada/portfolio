@@ -14,11 +14,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "top#index"
   resources :users, only: %i[new create]
-  resources :diaries do
-    member do
-      get :correct
-    end
-  end
+  resources :diaries
   resources :password_resets, only: %i[new create edit update]
 
   get "login", to: "user_sessions#new"

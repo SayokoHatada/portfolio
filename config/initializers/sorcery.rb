@@ -221,7 +221,7 @@ Rails.application.config.sorcery.configure do |config|
 
   config.line.key = Rails.application.credentials.dig(:line, :channel_id)
   config.line.secret = Rails.application.credentials.dig(:line, :channel_secret)
-  config.line.callback_url = "http://https://pictiodiary-581d7f0cd684.herokuapp.com/oauth/callback?provider=line"
+  config.line.callback_url = "https://pictiodiary-581d7f0cd684.herokuapp.com/oauth/callback?provider=line"
   config.line.scope = "profile openid email"
   # config.line.bot_prompt = "normal"
   config.line.user_info_mapping = { name: "displayName", email: "userId" }
