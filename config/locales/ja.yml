@@ -24,6 +24,21 @@ ja:
     abbr_day_names: [ "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
   diary:
     title: "Today's Diary"
+  diaries:
+    new:
+      title: 絵日記作成
+    show:
+      title: 絵日記詳細
+    index:
+      title: マイページ
+    edit:
+      title: 絵日記編集
   simple_calendar:
     previous: "<<"
     next: ">>"
+  user_sessions:
+    new:
+      title: ログイン
+  users:
+    new:
+      title: ユーザー登録
