@@ -1,3 +1,4 @@
+<% content_for(:title, t(".title")) %>
 <div class="col-md-12 ml-sm-auto px-4 mt-5 main-content">
   <h1 class="diaries-title fst-italic"><%= t('diary.title') %></h1>
   <div class="diaries-body fst-italic">
@@ -9,7 +10,7 @@
       </div>
       <div class="mb-3">
       <%= form.label :body, "Your diary (50-2000letters)", class: "form-label" %>
-      <%= form.text_area :body, rows: 5, class: "form-control", placeholder: "ここに英文を入力..." %>
+      <%= form.text_area :body, rows: 10, class: "form-control", placeholder: "ここに英文を入力..." %>
       </div>
       <div class="mb-3">
         <%= form.label :keyword, "Keyword", class: "form-label" %>
