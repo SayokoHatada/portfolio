@@ -15,7 +15,7 @@
 
 | ユーザー登録 | ログイン |
 | :---: | :---: |
-| <img width="300" src="https://i.gyazo.com/f9816223032136d2e8118d95d9fd817a.png"> | <img width="300" src="https://i.gyazo.com/5f83a541c1869ddc07a59f2892a9b4aa.png"> |
+| <img width="320" src="https://i.gyazo.com/1be9a77702f08e61a3f78e08e44cf0a1.png"> | <img width="320" src="https://i.gyazo.com/8891ba64e0fbbf254f932f063dae8fa3.png"> |
 | <p align="left">「メールアドレス」「パスワード」「確認用パスワード」「名前」を入力してユーザー登録を行います。</p> | <p align="left">LINEログインも可能です。</p>
 <br>
 
