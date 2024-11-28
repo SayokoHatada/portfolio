@@ -1,6 +1,6 @@
 # 📔PictioDiary
 サービスURL：https://www.pictiodiary.com/
-<img width="500" src="app/assets/images/ogp.png"><br>
+<img width="500" src="app/assets/images/OGP.png"><br>
 <br>
 
 ### ■サービス概要
