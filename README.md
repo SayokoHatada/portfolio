@@ -1,19 +1,49 @@
-■サービス概要 英語で絵日記を作成できるアプリ
+# 📔PictioDiary
+サービスURL：https://www.pictiodiary.com/
+<img width="500" src="app/assets/images/ogp.png"><br>
+<br>
 
-■ このサービスへの思い・作りたい理由 英語学習においてアウトプットは特に大事だと、過去学習・留学体験を経て特に感じていた。 listening、speakingを多くされている方は見かけるが、一から文章を作成することも同じぐらい大事で英語学習において大きなメリットになると考えているため、 日記というフランクに書けるものを作成したいと思った。 また、少しでも楽しいと思ってもらえるよう絵日記にすることで視覚的な楽しさの要素を加えられると思った。 添削ツールがある中添削機能がある点に関しては、あくまで学習ツールとして作成したいので、他の添削ツールに持っていくという二度手間をなくすためその場での添削機能が望ましいと考えた。
+### ■サービス概要
+日頃アプトプットの機会があまりないという英語学習者に向けた<br>
+英文絵日記作成アプリです。
 
-■ ユーザー層について 英語学習者
+### ■サービス開発の背景
+私は英語学習においてアウトプットは特に大事だと、過去の学習・留学体験を経て特に感じていました。 listening、speakingを多くされている方は見かけますが、一から文章を作成することも同じぐらい大事で英語学習において大きなメリットになると考えているので、 日記というフランクに書けるものを作成したいと思いました。<br>
+また、少しでも楽しいと思ってもらえるよう絵日記にすることで視覚的な楽しさの要素を加え、継続して絵日記を書き学習の一環としてもらえたらと思っています。
 
-■サービスの利用イメージ ログインし自分の日記を作成、添削まで簡単に操作可能で、自分の英語力を確認、学んだことをすぐにアウトプットできる場になる。
+### ■機能紹介
 
-■ ユーザーの獲得について 現状案なし
+| ユーザー登録 | ログイン |
+| :---: | :---: |
+| <img width="300" src="https://i.gyazo.com/f9816223032136d2e8118d95d9fd817a.png"> | <img width="300" src="https://i.gyazo.com/5f83a541c1869ddc07a59f2892a9b4aa.png"> |
+| <p align="left">「メールアドレス」「パスワード」「確認用パスワード」「名前」を入力してユーザー登録を行います。</p> | <p align="left">LINEログインも可能です。</p>
+<br>
 
-■ サービスの差別化ポイント・推しポイント 英語日記作成・添削機能を持つサービスだけでなく、絵日記としているところ。
+| カレンダー機能 |
+| :---: |
+| <img width="500" src="app/assets/images/home1.png"> |
+| <p align="left">これまでの作成した絵日記が見えることで、継続する意欲につながるようにカレンダーで表示させています。</p>|
+<br>
 
-■ 機能候補 MVPリリース ・ユーザー登録 ・ログイン ・添削機能 ・画像生成機能(日記の内容を元にユーザーが単語数個を入力し画像生成させる)
+| AI添削機能 / 画像生成機能|
+| :---: |
+| <img width="500" src="app/assets/images/home3.png"> |
+| <p align="left"> 新規作成をするとAIの添削と画像生成が行われ表示されます。画像は絵日記風の画風で設定しています。 </p> |
+<br>
 
-■ 機能の実装方針予定 添削機能&画像生成：OpenAI
+### ■使用技術
 
-■ 画面遷移図のリンク https://www.figma.com/design/x5pR9bHkPmLKpVZPtiKzRq/Portfolio?node-id=0-1&t=8zaH9eaWMQ2dT5n5-1
+| カテゴリ | 技術内容 |
+| --- | --- | 
+| バックエンド | Ruby on Rails 7.2.2・Ruby 3.2.3 |
+| フロントエンド | Bootstrap5 |
+| Web API | OpenAI API・LINE Developers |
+| データベース | PostgreSQL |
+| インフラ | Heroku |
+| バージョン管理ツール | GitHub |
 
-■ ER図のリンク https://drive.google.com/file/d/1T569KEKFF6YmZ6AOLRB4vDyJgQ6SkgRE/view?usp=sharing
+### ■ER図
+ https://drive.google.com/file/d/1T569KEKFF6YmZ6AOLRB4vDyJgQ6SkgRE/view?usp=sharing
+
+### ■画面遷移図
+https://www.figma.com/design/x5pR9bHkPmLKpVZPtiKzRq/Portfolio?node-id=0-1&t=8zaH9eaWMQ2dT5n5-1
