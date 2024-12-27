@@ -82,7 +82,7 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
-          bundle exec rspec --format documentation --out rspec_results.txt
+          bundle exec rspec --format documentation --out tmp/rspec_results.txt
           cat rspec_results.txt
 
       - name: Keep screenshots from failed system tests
