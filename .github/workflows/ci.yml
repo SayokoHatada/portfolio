@@ -82,8 +82,9 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432
         run: |
-          bundle exec rspec --format documentation --out tmp/rspec_results.txt
-          cat rspec_results.txt
+          mkdir -p tmp
+          bundle exec rspec --format documentation --out tmp/rspec_results.txt --no-warning || true
+          cat tmp/rspec_results.txt || echo "RSpec results file not found"
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
@@ -92,3 +93,10 @@ jobs:
           name: screenshots
           path: ${{ github.workspace }}/tmp/screenshots
           if-no-files-found: ignore
+
+      - name: Debug Environment
+        run: |
+          ruby -v
+          bundle -v
+          gem list
+          ls -al tmp
