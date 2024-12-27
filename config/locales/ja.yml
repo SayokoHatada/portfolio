@@ -11,12 +11,19 @@ ja:
           attributes:
             email:
               taken: "そのEmailはすでに存在します"
+              blank: "Emailを入力してください"
+            password:
+              too_short: "Passwordは%{count}文字以上で入力してください"
+              blank: "Passwordは%{count}文字以上で入力してください"
             password_confirmation:
               confirmation: "Passwordと入力が一致しません"
         diary:
           attributes:
             title:
               blank: "タイトルを入力してください"
+            body:
+              too_short: "Bodyは%{count}文字以上で入力してください"
+              too_long: "Bodyは%{count}文字以下で入力してください"
 
   date:
     month_names: [ ~, "January", "February", "March", "April", "May", "Jun", "July", "August", "September", "October", "November", "December" ]
